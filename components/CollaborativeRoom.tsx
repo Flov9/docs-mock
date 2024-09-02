@@ -105,9 +105,9 @@ const CollaborativeRoom = ({ roomId, roomMetadata, users, currentUserType }: Col
 
               <ShareModal 
                 roomId={roomId}
-                collaborators={users}
+                collaborators={users || []}
                 creatorId={roomMetadata.creatorId}
-                currentUserType={currentUserType}
+                currentUserType={currentUserType || 'viewer'}
               />
 
               <SignedOut>
@@ -118,7 +118,7 @@ const CollaborativeRoom = ({ roomId, roomMetadata, users, currentUserType }: Col
               </SignedIn>
             </div>
           </Header>
-          <Editor roomId={ roomId } currentUserType={ currentUserType } />
+          <Editor roomId={ roomId } currentUserType={ currentUserType ||'viewer' } />
         </div>
       </ClientSideSuspense>
     </RoomProvider>

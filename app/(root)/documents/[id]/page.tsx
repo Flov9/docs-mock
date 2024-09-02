@@ -18,7 +18,6 @@ const Document = async ({ params: { id } }: SearchParamProps) => {
   if (!room) redirect("/");
 
   const userIds = Object.keys(room.usersAccesses);
-  console.log(userIds);
   const users = await getClerkUsers({ userIds }); // from user.actions.ts
 
   const usersData = users.map((user: User) => ({
